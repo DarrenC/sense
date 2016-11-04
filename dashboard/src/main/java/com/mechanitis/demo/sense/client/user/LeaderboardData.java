@@ -27,7 +27,6 @@ public class LeaderboardData implements MessageListener<String> {
         TwitterUser twitterUser = allTwitterUsers.computeIfAbsent(message, TwitterUser::new);
         twitterUser.incrementCount();
 
-
         List<TwitterUser> leaders = allTwitterUsers.values().stream()
                                                    .sorted(comparingInt(TwitterUser::getTweetCount).reversed())
                                                    .limit(NUMBER_OF_LEADERS)
